@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kylian Mbappé</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#The-story">The story</a></li>
+        <li><a href="#Achievements">Numbers And Achievements</a></li>
+        <li><a href="#stats">Current Stats</a></li>
+      </ul>
+  </header>
+  <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ font-family: Arial, sans-serif;
+ color: white;
+ text-align: center;
+ background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+ url("kylian mbappé.jpg");
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+ padding-top: 70px;
+ }
+
+ 
+ nav {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background-color: #2b00ff;
+ padding: 15px;
+ z-index: 1000;
+ }
+
+ nav ul {
+ list-style: none;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 30px;
+ }
+
+ nav ul li a {
+ color: white;
+ text-decoration: none;
+ font-weight: bold;
+ }
+
+ nav ul li a:hover {
+ color: yellow;
+ }
+
+ .cta-btn {
+ display: inline-block;
+ margin-top: 15px;
+ padding: 10px 20px;
+ background: black;
+ color: white;
+ text-decoration: none;
+ border-radius: 6px;
+ }
+
+ .cta-btn:hover {
+ background: white;
+ color: black;
+ }
+
+   img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgb(43, 0, 255);
+  }
+ section {
+ padding: 50px 20px;
+ }
+
+ img {
+    width: 350px;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+
+ h1 {
+ margin-bottom: 20px;
+ }
+
+ p {
+ line-height: 1.8;
+ font-size: 18px;
+ }
+
+ @media(max-width:768px) {
+
+ nav ul {
+ flex-direction: column;
+ gap: 15px;
+ }
+
+ img {
+ width: 90%;
+ }
+
+ p {
+ font-size: 16px;
+ color: #fefbfb;
+ font-family: Arial, sans-serif;
+ font-style: italic;
+ font-weight: bold;
+ font-size: medium;
+flex-direction: column;
+}
+ 
+ }
+ 
+
+   
+</style> 
+
+<section id="Home">
+    <center><h1>Kylian Mbappé</h1></center>
+
+</section>
+
+<section id="The-story">
+    <h1>The Story</h1>
+    <img src="Mbappe.jpg" alt="Kylian Mbappé">
+    
+    <p>Kylian Mbappé Lottin, born on December 20, 1998, in Bondy, France, is a professional 
+        footballer who has taken the world by storm with his exceptional talent and speed. 
+        From a young age, Mbappé displayed remarkable skill on the pitch, quickly rising 
+        through the ranks of youth football. He made his professional debut for AS Monaco at
+         just 16 years old, showcasing his ability to score goals and create opportunities for
+          his team. His performances caught the attention of top European clubs, leading to a 
+          high-profile transfer to Paris Saint-Germain (PSG) in 2017. At PSG, Mbappé has continued 
+          to shine, winning multiple domestic titles and establishing himself as one of the best 
+          players in the world. His contributions to the French national team have also been 
+          significant, helping them secure victory in the 2018 FIFA World Cup. Off the field,
+           Mbappé is known for his philanthropy and dedication to giving back to his community.
+            With his combination of talent, work ethic, and charisma, Kylian Mbappé has become a
+             global icon in the world of football.</p>
+    </section>
+    <section id="Achievements">
+        <h1>Numbers And Achievements</h1>
+            <img src="Mbappe Fifa World Cup 2026🔥.jpg" alt="Kylian Mbappé">
+        <ul> 
+            <li>FIFA World Cup Winner: 2018 with the French national team.</li>
+            <li>Ligue 1 Titles: Multiple championships with Paris Saint-Germain (PSG).</li>
+            <li>Coupe de France Titles: Several victories with PSG.</li>
+            <li>Coupe de la Ligue Titles: Multiple wins with PSG.</li>
+            <li>Ligue 1 Top Scorer: Consistently among the top scorers in the league.</li>
+            <li>FIFA World Cup Best Young Player Award: 2018, recognizing his outstanding performance.</li>
+            <li>French Player of the Year: Multiple awards for his contributions to French football.</li>
+            <li>European Player of the Year: Awarded for his exceptional performance in European football.</li>
+            <li>The golden boot: Won the award for being the top scorer in the 2018 FIFA World Cup and the 2022 FIFA World Cup.</li>
+            <li>The Golden boot: la liga top scorer 2025,2026 </li>
+        </ul>
+            <center><h2>Mbappé has alot of achievements with nation and club and with
+                his talent and hard work he will achieve more in the future and will be 
+                remembered as one of the best footballers of all time. </h2></center>
+            </h2></center>
+    </section>                    
+<section id="stats">
+    <h1>Current Stats</h1>
+    <img src="𝗪𝗢𝗥𝗟𝗗 𝗖𝗨𝗣 𝗠𝗕𝗔𝗣𝗣𝗘 🔥.jpg" alt="Kylian Mbappé">
+    <ul>
+        <li>Position: Forward</li>
+        <li>Club: Real Madrid</li>
+        <li>Nationality: French</li>
+        <li> Goals: [432]</li>
+        <li>Assists: [176]</li>
+        <li>Appearances: [574]</li>
+    </ul>
+</body>
+<script>
+      const statNumbers = document.querySelectorAll('.stat-number');
+
+    statNumbers.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const increment = target / 50; 
+
+      const updateCount = () => {
+        const count = +counter.innerText;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+
+    
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        alert("You clicked on " + img.alt + "!");
+      });
+    });
+</script>
+</html>

@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULA 1</title> 
+    
+    <style>
+        
+        :root {
+            --primary-red: #e10600;      
+            --dark-charcoal: #15151e;   
+            --light-gray: #f3f3f3;      
+            --pure-white: #ffffff;
+            --text-dark: #1f1f27;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;    
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        
+        header {
+            background-color: var(--dark-charcoal);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--primary-red);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-red);
+            color: var(--pure-white);
+            text-decoration: none;
+            padding: 8px 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--pure-white);
+            color: var(--dark-charcoal);
+        }
+
+
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            min-height: 450px;
+            background: url('https://images.unsplash.com/photo-1562591176-7ca29e92bc44?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 70px; 
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(21, 21, 30, 0.95), rgba(21, 21, 30, 0.5));
+        }
+
+        .hero-content {
+            position: relative;
+            color: var(--pure-white);
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-left: 6px solid var(--primary-red);
+            padding-left: 15px;
+            text-align: left;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+    
+        .info-section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .info-section h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--dark-charcoal);
+        }
+
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: var(--dark-charcoal);
+            border-bottom: 4px solid var(--primary-red);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        
+        .driver-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .driver-card {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .driver-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        
+        .driver-image {
+            width: 100%;
+            height: 380px; 
+            overflow: hidden;
+            background-color: #e5e5e5; 
+        }
+
+        
+        .driver-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%; 
+            transition: var(--transition-smooth);
+        }
+
+        .driver-card:hover .driver-image img {
+            transform: scale(1.04);
+        }
+
+        .driver-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .driver-info h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark-charcoal);
+            margin-bottom: 5px;
+        }
+
+        .driver-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        
+        .center-card {
+            grid-column: 1 / -1; 
+            justify-self: center;
+            width: 100%;
+            max-width: 585px; 
+        }
+
+        .center-card .driver-info {
+            text-align: center;
+            align-items: center;
+        }
+
+        .grid-row {
+            display: flex;
+            align-items: stretch;
+            background-color: var(--light-gray); 
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .grid-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .row-image, .row-text {
+            flex: 1;
+            width: 50%;
+        }
+
+        .row-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition-smooth);
+        }
+
+        
+        .grid-row:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .grid-row:hover .row-image img {
+            transform: scale(1.04);
+        }
+
+        .row-text {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .category-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--primary-red);
+            margin-bottom: 12px;
+        }
+
+        .row-text h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark-charcoal);
+        }
+
+        .row-text p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        
+        .my-button {
+            display: inline-block;
+            background-color: var(--primary-red); 
+            color: white;           
+            border: 2px solid var(--primary-red); 
+            padding: 10px 20px;
+            text-decoration: none;
+            cursor: pointer;       
+            transition: var(--transition-smooth);      
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .my-button:hover {
+            background-color: transparent;
+            color: var(--primary-red);
+     }   
+
+        .my-button:active {
+            background-color: var(--dark-charcoal); 
+            border-color: var(--dark-charcoal);
+            color: white;            
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        
+        footer {
+            background-color: var(--dark-charcoal);
+            color: var(--pure-white);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 4px solid var(--primary-red);
+            margin-top: 60px;
+        }
+
+        footer h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        
+        @media (max-width: 768px) {
+            .driver-grid {
+                grid-template-columns: 1fr; 
+            }
+            .center-card {
+                max-width: 100%;
+            }
+            .driver-image {
+                height: 320px; 
+            }
+            .grid-row, .grid-row.reverse {
+                flex-direction: column;
+            }
+            .row-image, .row-text {
+                width: 100%;
+            }
+            .row-text {
+                padding: 30px 20px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="nav-container">
+        <a href="#" class="logo">FORMULA <span>1</span></a> 
+        <ul class="nav-links">
+            <li><a href="#main">Main</a></li>
+            <li><a href="#how-to-be-a-driver">How to be an F1 driver</a></li>
+            <li><a href="#what-is-the-formula1">What is Formula 1</a></li>
+            <li><a href="#the-Gforce">The G-Force</a></li>
+            <li><a href="#the-current-grid">The Current Grid</a></li>
+            <li><a href="#f1-teams">F1 Teams</a></li>
+        </ul>
+        <a href="https://www.formula1.com/en/page/get-involved" class="cta-btn">More Info</a>
+    </nav>
+</header>
+
+<section class="hero-section" id="main">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>FORMULA 1</h1>
+        <p>The top of all motorsport</p>
+    </div>
+</section>
+
+<section class="info-section" id="what-is-the-formula1">
+    <h1>What is Formula 1</h1>
+    <p>
+        Formula 1 is one of the hardest sports of all time. In an F1 team, it takes at least 1,300 people to make both cars. 
+        F1 cars hit terrifying speeds, and drivers can lose up to 4kg every single race. Changing normal car tires can take 10 to 15 minutes but, 
+        in F1 it takes only 2.5 seconds. The tire guns can rotate 15,000 times in a minute and the wheels utilize a single large nut to make changing them much easier. 
+        The speed limit in the pitlane is 60 km/h; at 60.1 km/h you will receive a 5-second penalty on your time. That is why they call Formula 1 the pinnacle of motorsport.
+    </p>
+</section>
+
+<main class="content-container">
+    
+    <section id="the-Gforce">
+        <div class="grid-row">
+            <div class="row-image">
+                <img src="59672763809322257.jpg" alt="Formula 1 Car">
+            </div>
+            <div class="row-text">
+                <span class="category-tag">The Physics</span>
+                <h2>Extreme G-Forces</h2>
+                <p>
+                    At the start of the race, the driver will be hit by 2G of force, the car pulls 4G, and in corners up to 6G—imagine this! 
+                    When you hit the brakes at 120 km/h, the G-force is intense.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/G-force" target="_blank" class="my-button">Explore Physics</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to-be-a-driver">
+        <h2 class="section-title">The Journey to F1</h2>
+
+        <div class="grid-row reverse">
+            <div class="row-image">
+                <img src="122019471148074414.jpg" alt="Go Karting">
+            </div>
+            <div class="row-text">
+                <span class="category-tag">Step 1</span>
+                <h2>Go-Karting Foundations</h2>
+                <p>
+                    First, you have to go karting from a young age (around 3 to 8 years old) and you will stay there for 5 to 7 years.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Kart_racing" target="_blank" class="my-button">Karting </a>
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="row-image">
+                <img src="29343835067941964.jpg" alt="Formula 4 Car">
+            </div>
+            <div class="row-text">
+                <span class="category-tag">Step 2</span>
+                <h2>Formula 4 Progression</h2>
+                <p>
+                    Second is FORMULA 4. It's bigger and faster, and you will stay for 1 to 3 years.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Formula_4" target="_blank" class="my-button">Formula4</a>
+            </div>
+        </div>
+
+        <div class="grid-row reverse">
+            <div class="row-image">
+                <img src="59672763809322257.jpg" alt="Formula 1 Car Grid">
+            </div>
+            <div class="row-text">
+                <span class="category-tag">Steps 3 & 4</span>
+                <h2>F3, F2, and the F1 Dream</h2>
+                <p>
+                    Third is FORMULA 3. It's even bigger and faster, and you will stay there for 1 to 3 years. Fourth is Formula 2, where you will stay for 1 to 3 seasons. If you become a world champion, you will graduate to F1 like Lando Norris or Charles Leclerc, get into an F1 academy for 2 seasons, or someone might offer you a direct seat in F1.
+                </p>
+                <div class="button-group">
+                    <a href="https://www.f1academy.com/" target="_blank" class="my-button">F1 Academies</a>
+                    <a href="https://www.fiaformula2.com/" target="_blank" class="my-button">Formula 2</a>
+                    <a href="https://www.fiaformula3.com/" target="_blank" class="my-button">Formula 3</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="the-current-grid">
+        <h2 class="section-title">The Current Grid</h2>
+        <div class="driver-grid">
+            
+            <!-- Driver 1 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Max Verstappen (1).jpg" alt="Max Verstappen">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Max Verstappen</h2>
+                        <h3>Driving for Red Bull Racing</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/max-verstappen" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 2 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Isack Hadjar Red Bull 2026.jpg" alt="Isack Hadjar">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Isack Hadjar</h2>
+                        <h3>Driving for Red Bull Racing</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/isack-hadjar" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+      
+            <!-- Driver 3 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Kimi Antonelli.jpg" alt="Kimi Antonelli">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Kimi Antonelli</h2>
+                        <h3>Driving for Mercedes Petronas F1 Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/kimi-antonelli" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 4 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Piloto George Russell - Perfil, Podios, Carrera y Resultados _ Base de Datos de Pilotos 51GT3.jpg" alt="George Russell">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>George Russell</h2>
+                        <h3>Driving for Mercedes Petronas F1 Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/george-russell" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 5 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="oscar piastri _3.jpg" alt="Oscar Piastri">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Oscar Piastri</h2>
+                        <h3>Driving For McLaren Racing</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/oscar-piastri" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 6 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="F1 Lando Norris Logo Gear _ Licensed _ CMC Motorsports®.jpg" alt="Lando Norris">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Lando Norris</h2>
+                        <h3>Driving For McLaren Racing</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/lando-norris" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 7 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Watch an F1 Driver Joy Ride a Ferrari in 'Lewis Hamilton's Day Off'.jpg" alt="Lewis Hamilton">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Lewis Hamilton</h2>
+                        <h3>Driving For Ferrari</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/lewis-hamilton" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 8 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="charles leclerc.jpg" alt="Charles Leclerc">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Charles Leclerc</h2>
+                        <h3>Driving For Ferrari</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/charles-leclerc" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 9 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Liam Lawson 2026.jpg" alt="Liam Lawson">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Liam Lawson</h2>
+                        <h3>Driving For Racing Bulls</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/liam-lawson" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 10 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="formula one.jpg" alt="Arvid Lindblad">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Arvid Lindblad</h2>
+                        <h3>Driving For Racing Bulls</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/arvid-lindblad" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 11 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Pierre Gasly - F1 Driver of Alpine Racing.jpg" alt="Pierre Gasly">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Pierre Gasly</h2>
+                        <h3>Driving For Alpine Racing</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/pierre-gasly" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 12 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Franco Colapinto.jpg" alt="Franco Colapinto">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Franco Colapinto</h2>
+                        <h3>Driving For Alpine Racing</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/franco-colapinto" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 13 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Haas 2025.jpg" alt="Esteban Ocon">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Esteban Ocon</h2>
+                        <h3>Driving For Haas</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/esteban-ocon" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+            
+            <!-- Driver 14 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Oliver Bearman.jpg" alt="Oliver Bearman">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Oliver Bearman</h2>
+                        <h3>Driving For Haas</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/oliver-bearman" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 15 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="913315999450808641.jpg" alt="Fernando Alonso">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Fernando Alonso</h2>
+                        <h3>Driving For Aston Martin</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/fernando-alonso" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 16 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="29906785019247151.jpg" alt="Lance Stroll">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Lance Stroll</h2>
+                        <h3>Driving For Aston Martin</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/lance-stroll" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 17 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Nico Hulkenberg _ Audi f1 team.jpg" alt="Nico Hulkenberg">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Nico Hulkenberg</h2>
+                        <h3>Driving For Audi</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/nico-hulkenberg" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 18 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Gabriel Bortoleto.jpg" alt="Gabriel Bortoleto">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Gabriel Bortoleto</h2>
+                        <h3>Driving For Audi</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/gabriel-bortoleto" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 19 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Carlos Sainz.jpg" alt="Carlos Sainz">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Carlos Sainz</h2>
+                        <h3>Driving For Williams</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/carlos-sainz" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 20 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="F1 Williams 2025.jpg" alt="Alexander Albon">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Alexander Albon</h2>
+                        <h3>Driving For Williams</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/alexander-albon" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 21 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Sergio Perez.jpg" alt="Sergio Perez"> 
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Sergio Perez</h2>
+                        <h3>Driving For Cadillac</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/sergio-perez" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+
+            <!-- Driver 22 -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Valtteri Bottas.jpg" alt="Valtteri Bottas">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Valtteri Bottas</h2>
+                        <h3>Driving For Cadillac</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/drivers/valtteri-bottas" target="_blank" class="my-button">View Driver Stats</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="f1-teams">
+        <h2 class="section-title">F1 Teams</h2>
+        <div class="driver-grid">
+            <!-- Red Bull -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Red Bull Racing 2026 Livery – Official Reveal.jpg" alt="Red Bull Racing car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Red Bull Racing</h2>
+                        <h3>Oracle Red Bull Racing</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/red-bull-racing" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>
+           
+            <!-- Racing bulls-->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Racing Bulls' livery for the 2026 season has been unveiled.jpg" alt="Racing Bulls car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Racing Bulls</h2>
+                        <h3>Visa Cash App Racing Bulls</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/racing-bulls" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>
+
+            <!-- Ferrari-->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="91127592459688447.jpg" alt="Ferrari car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Ferrari</h2>
+                        <h3>Scuderia Ferrari HP</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/ferrari" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>
+
+            <!-- mercedes-->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="673006738112872897.jpg" alt="Mercedes car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Mercedes</h2>
+                        <h3>Mercedes-AMG PETRONAS Formula One Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/mercedes" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>
+
+            <!-- mclaren -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="32580797303355591.jpg" alt="Mclaren car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>McLaren</h2>
+                        <h3>McLaren Formula 1 Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/mclaren" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>
+            
+            <!-- haas -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Haas unveils 2026 F1 car and livery alongside new title partner Toyota.jpg" alt="Haas car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Haas</h2>
+                        <h3>TGR Haas F1 Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/haas" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>   
+            
+            <!-- Audi -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Audi Revolut F1 Team _ livery 2026.jpg" alt="Audi car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Audi</h2>
+                        <h3>Audi Revolut F1 Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/audi" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>   
+
+            <!-- Williams -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="Williams Racing F1 team 2026 Livery.jpg" alt="Williams car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Williams</h2>
+                        <h3>Atlassian Williams F1 Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/williams" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>   
+
+            <!-- Alpine -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="New Alpine A523 completes F1 launch season.jpg" alt="Alpine car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Alpine</h2>
+                        <h3>BWT Alpine Formula One Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/alpine" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>   
+
+            <!-- Aston Martin -->
+            <div class="driver-card">
+                <div class="driver-image">
+                    <img src="2026 F1 Cars_ AMR26.jpg" alt="Aston Martin car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Aston Martin</h2>
+                        <h3>Aston Martin Aramco Formula One Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/aston-martin" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>   
+
+            <!-- Cadillac -->
+            <div class="driver-card center-card">
+                <div class="driver-image">
+                    <img src="livery Cadillac 2026.jpg" alt="Cadillac car">
+                </div>
+                <div class="driver-info">
+                    <div>
+                        <h2>Cadillac</h2>
+                        <h3>Cadillac Formula 1 Team</h3>
+                    </div>
+                    <a href="https://www.formula1.com/en/teams/cadillac" target="_blank" class="my-button">View Team Stats</a>
+                </div>
+            </div>   
+        </div>
+    </section>
+</main>
+
+<footer>
+    <h2>All rights are received  &copy; 2026</h2>
+</footer>
+
+</body>
+<script>
+      const statNumbers = document.querySelectorAll('.stat-number');
+
+    statNumbers.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const increment = target / 50; 
+
+      const updateCount = () => {
+        const count = +counter.innerText;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+
+    
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        alert("You clicked on " + img.alt + "!");
+      });
+    });
+</script>
+</html>
